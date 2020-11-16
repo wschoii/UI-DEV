@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style type="text/css">body,html,nav{margin:0;padding:0}.header{display:flex;height:60px;padding:0 12px;background-color:#282828;align-items:center}.logo{width:64px;height:51px;margin-right:auto;text-decoration:none}.search,.cart,.setting{padding:12px;height:20px;width:20px;}.user{padding:12px;border:none;background:0 0}.user:before{display:block;width:24px;height:24px;border-radius:50%;background-color:#888;content:''}.main{flex:1 0 auto;}</style>
+</head>
+<body>
+<header data-include="./Header/index.html"></header>
+<div role="main" class="main">
+
+</div>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    $(function() {
+        include();
+    });
+    function include() {
+        let key = $('[data-include]');
+        let self, url;
+        $.each(key, function(){
+            self = $(this);
+            url = self.data('include');
+            self.load(url, function() {
+                self.removeAttr('data-include');
+            });
+        });
+    }
+</script>
+</body>
+</html>
